@@ -1,0 +1,306 @@
+﻿:root {
+  --cfg-bg: #0a1215;
+  --cfg-surface: #0f1b21;
+  --cfg-surface-2: #111f27;
+  --cfg-border: rgba(170, 203, 216, 0.22);
+  --cfg-text: #e9f3f7;
+  --cfg-muted: rgba(233, 243, 247, 0.66);
+  --cfg-accent: #74c4de;
+  --cfg-success: #86d7a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--cfg-text);
+  background: radial-gradient(circle at 20% 12%, #17343f 0%, #0d1c22 36%, #070f13 100%);
+}
+
+.cfg-app {
+  display: grid;
+  grid-template-columns: minmax(290px, 340px) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.cfg-sidebar {
+  border-right: 1px solid var(--cfg-border);
+  background: linear-gradient(180deg, rgba(10, 18, 22, 0.95), rgba(8, 14, 18, 0.92));
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.cfg-sidebar-head {
+  padding: 24px 20px 18px;
+  border-bottom: 1px solid var(--cfg-border);
+}
+
+.cfg-sidebar-head h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+.cfg-sidebar-head p {
+  margin: 6px 0 0;
+  color: var(--cfg-muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.03em;
+}
+
+.cfg-scroll {
+  overflow: auto;
+  padding: 16px 16px 24px;
+}
+
+.cfg-group {
+  margin: 0 0 16px;
+  border: 1px solid var(--cfg-border);
+  border-radius: 14px;
+  background: rgba(17, 31, 39, 0.7);
+  padding: 14px;
+}
+
+.cfg-group h2 {
+  margin: 0 0 10px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--cfg-muted);
+}
+
+.cfg-group label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.cfg-group label:last-child {
+  margin-bottom: 0;
+}
+
+.cfg-group span {
+  font-size: 0.82rem;
+  color: rgba(233, 243, 247, 0.82);
+}
+
+.cfg-toggle {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px !important;
+}
+
+.cfg-toggle input {
+  width: 16px;
+  height: 16px;
+}
+
+.cfg-toggle span {
+  font-size: 0.84rem;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  border: 1px solid rgba(170, 203, 216, 0.32);
+  background: rgba(10, 18, 22, 0.72);
+  color: var(--cfg-text);
+  border-radius: 10px;
+  padding: 9px 10px;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: rgba(116, 196, 222, 0.9);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.cfg-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) minmax(200px, 34vh);
+  min-height: 100vh;
+}
+
+.cfg-topbar {
+  border-bottom: 1px solid var(--cfg-border);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(9, 16, 20, 0.85);
+}
+
+.cfg-menu-btn,
+.cfg-copy-btn,
+.cfg-device-switch button {
+  border: 1px solid rgba(170, 203, 216, 0.32);
+  background: rgba(17, 31, 39, 0.72);
+  color: var(--cfg-text);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.cfg-menu-btn {
+  display: none;
+}
+
+.cfg-device-switch {
+  display: inline-flex;
+  border: 1px solid rgba(170, 203, 216, 0.28);
+  border-radius: 11px;
+  padding: 3px;
+  background: rgba(10, 18, 22, 0.66);
+}
+
+.cfg-device-switch button {
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  min-width: 88px;
+}
+
+.cfg-device-switch button.is-active {
+  background: rgba(116, 196, 222, 0.22);
+  color: #f6fdff;
+}
+
+.cfg-copy-btn {
+  margin-left: auto;
+}
+
+.cfg-preview-pane {
+  overflow: auto;
+  padding: 18px;
+}
+
+.cfg-preview-stage {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--cfg-border);
+  border-radius: 16px;
+  background: linear-gradient(140deg, #12242c, #0c171d 68%);
+  min-height: 500px;
+  padding: 18px;
+  transition: width 220ms ease;
+}
+
+.cfg-preview-stage[data-device="mobile"] {
+  max-width: 390px;
+}
+
+.cfg-preview-section {
+  border: 1px solid rgba(170, 203, 216, 0.2);
+  border-radius: 14px;
+  background: rgba(8, 14, 18, 0.55);
+  padding: 10px;
+}
+
+.cfg-code-pane {
+  border-top: 1px solid var(--cfg-border);
+  background: rgba(8, 14, 18, 0.88);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 220px;
+}
+
+.cfg-code-head {
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--cfg-border);
+}
+
+.cfg-code-head h3 {
+  margin: 0;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cfg-muted);
+}
+
+#copyStatus {
+  font-size: 0.78rem;
+  color: var(--cfg-muted);
+}
+
+#copyStatus.is-success {
+  color: var(--cfg-success);
+}
+
+#codeOutput {
+  margin: 0;
+  padding: 14px 18px 18px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #d9edf3;
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .cfg-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cfg-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(88vw, 340px);
+    z-index: 1200;
+    transform: translateX(-102%);
+    transition: transform 220ms ease;
+    border-right: 1px solid var(--cfg-border);
+  }
+
+  .cfg-app.is-sidebar-open .cfg-sidebar {
+    transform: translateX(0);
+  }
+
+  .cfg-menu-btn {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 740px) {
+  .cfg-topbar {
+    flex-wrap: wrap;
+  }
+
+  .cfg-copy-btn {
+    margin-left: 0;
+  }
+
+  .cfg-preview-pane {
+    padding: 12px;
+  }
+
+  .cfg-preview-stage {
+    min-height: 440px;
+    padding: 12px;
+  }
+}
+

@@ -1,0 +1,243 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Reveal Config UI</title>
+    <link rel="stylesheet" href="../plugin/image-reveal.css" />
+    <link rel="stylesheet" href="./config-ui.css" />
+  </head>
+  <body>
+    <div class="cfg-app" id="cfgApp">
+      <aside class="cfg-sidebar" id="cfgSidebar">
+        <div class="cfg-sidebar-head">
+          <h1>Image Reveal</h1>
+          <p>Squarespace generator</p>
+        </div>
+
+        <div class="cfg-scroll">
+          <section class="cfg-group">
+            <h2>Layout</h2>
+            <label>
+              <span>Row / Image layout</span>
+              <select id="layoutSelect">
+                <option value="left-content-right-image">Content left, image right</option>
+                <option value="right-content-left-image">Content right, image left</option>
+                <option value="title-left-image-custom">Title left, custom right image offset</option>
+                <option value="center-image">Image centered</option>
+                <option value="alternating-centered">Alternating sides + centered content</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="cfg-group">
+            <h2>Animation</h2>
+            <label>
+              <span>Preset</span>
+              <select id="presetSelect">
+                <option value="fade-slide-scale">fade-slide-scale</option>
+                <option value="fade-slide">fade-slide</option>
+                <option value="fade-scale">fade-scale</option>
+                <option value="fade">fade</option>
+                <option value="cinematic">cinematic</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Speed</span>
+              <select id="speedSelect">
+                <option value="slow">slow</option>
+                <option value="medium" selected>medium</option>
+                <option value="fast">fast</option>
+                <option value="custom">custom</option>
+              </select>
+            </label>
+
+            <label id="durationWrap" class="is-hidden">
+              <span>Duration (ms)</span>
+              <input id="durationInput" type="number" min="120" max="4000" step="10" value="650" />
+            </label>
+
+            <label>
+              <span>Easing</span>
+              <input id="easingInput" type="text" value="cubic-bezier(0.22, 1, 0.36, 1)" />
+            </label>
+          </section>
+
+          <section class="cfg-group">
+            <h2>Reveal</h2>
+            <label class="cfg-toggle">
+              <input id="followCursorToggle" type="checkbox" />
+              <span>Follow cursor</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="driftToggle" type="checkbox" checked />
+              <span>Drift motion</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="rotationToggle" type="checkbox" checked />
+              <span>Rotation</span>
+            </label>
+
+            <label id="rotationWrap">
+              <span>rotationDeg</span>
+              <input id="rotationInput" type="number" min="0" max="25" step="1" value="4" />
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="alternateToggle" type="checkbox" />
+              <span>Alternate direction per row</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="hoverLiftToggle" type="checkbox" checked />
+              <span>Float higher than row</span>
+            </label>
+
+            <label id="hoverLiftWrap">
+              <span>hoverLiftY</span>
+              <input id="hoverLiftInput" type="number" min="0" max="160" step="1" value="24" />
+            </label>
+
+            <label id="offsetRightWrap">
+              <span>offsetRightPx</span>
+              <input id="offsetRightInput" type="number" min="0" max="320" step="1" value="80" />
+            </label>
+
+            <label>
+              <span>offsetX</span>
+              <input id="offsetXInput" type="number" min="-320" max="320" step="1" value="0" />
+            </label>
+
+            <label>
+              <span>offsetY</span>
+              <input id="offsetYInput" type="number" min="-320" max="320" step="1" value="0" />
+            </label>
+          </section>
+
+          <section class="cfg-group">
+            <h2>Text / Row</h2>
+            <label class="cfg-toggle">
+              <input id="rolloverToggle" type="checkbox" checked />
+              <span>Text rollover</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="rowBgToggle" type="checkbox" checked />
+              <span>Row BG change + text inward slide</span>
+            </label>
+
+            <label id="inwardWrap">
+              <span>inwardSlidePx</span>
+              <input id="inwardSlideInput" type="number" min="0" max="80" step="1" value="10" />
+            </label>
+          </section>
+
+          <section class="cfg-group">
+            <h2>Mobile</h2>
+            <label class="cfg-toggle">
+              <input id="showMobileToggle" type="checkbox" />
+              <span>Show Effect on Mobile</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="accordionToggle" type="checkbox" />
+              <span>Accordion Mode</span>
+            </label>
+
+            <label class="cfg-toggle">
+              <input id="singleOpenToggle" type="checkbox" checked />
+              <span>Accordion single open</span>
+            </label>
+          </section>
+        </div>
+      </aside>
+
+      <main class="cfg-main">
+        <header class="cfg-topbar">
+          <button id="menuBtn" class="cfg-menu-btn" type="button" aria-controls="cfgSidebar" aria-expanded="false">Menu</button>
+
+          <div class="cfg-device-switch" role="tablist" aria-label="Preview device">
+            <button type="button" class="is-active" data-device="desktop">Desktop</button>
+            <button type="button" data-device="mobile">Mobile</button>
+          </div>
+
+          <button id="copyCodeBtn" class="cfg-copy-btn" type="button">Copy Embed Code</button>
+        </header>
+
+        <section class="cfg-preview-pane">
+          <div class="cfg-preview-stage" id="previewStage" data-device="desktop">
+            <section id="image-reveal-preview" class="cfg-preview-section">
+              <div class="sqs-block summary-v2-block sqs-block-summary-v2">
+                <div class="sqs-block-content">
+                  <div class="summary-block-wrapper summary-block-collection-type-blog-basic-grid summary-block-setting-text-size-medium summary-block-setting-text-align-left summary-block-setting-design-autocolumns summary-block-setting-design-list-thumbnail-left summary-block-setting-metadata-position-below-content summary-block-setting-primary-metadata-date summary-block-setting-secondary-metadata-author summary-block-setting-show-thumbnail summary-block-setting-show-title summary-block-setting-show-price summary-block-setting-show-excerpt sqs-gallery-design-autocolumns">
+                    <div class="summary-item-list-container sqs-gallery-container">
+                      <header class="summary-block-header">
+                        <div class="summary-heading preFade">
+                          <span class="summary-header-text"></span>
+                        </div>
+                      </header>
+                      <div class="summary-item-list sqs-gallery sqs-gallery-design-autocolumns"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="cfg-code-pane">
+          <div class="cfg-code-head">
+            <h3>Generated Embed Code</h3>
+            <span id="copyStatus">Ready</span>
+          </div>
+          <pre id="codeOutput"></pre>
+        </section>
+      </main>
+    </div>
+
+    <template id="summaryItemTemplate">
+      <div class="summary-item summary-item-record-type-text sqs-gallery-design-autocolumns-slide summary-item-has-thumbnail summary-item-has-excerpt summary-item-has-author positioned">
+        <div class="summary-thumbnail-outer-container">
+          <a class="summary-thumbnail-container sqs-gallery-image-container" href="#">
+            <div class="summary-thumbnail img-wrapper preFlex flexIn">
+              <img class="summary-thumbnail-image loaded" src="" alt="" />
+            </div>
+          </a>
+        </div>
+
+        <div class="summary-content sqs-gallery-meta-container preFade fadeIn">
+          <div class="summary-metadata-container summary-metadata-container--above-title">
+            <div class="summary-metadata summary-metadata--primary">
+              <time class="summary-metadata-item summary-metadata-item--date" datetime=""></time>
+            </div>
+            <div class="summary-metadata summary-metadata--secondary">
+              <span class="summary-metadata-item summary-metadata-item--author"><a href="#"></a></span>
+            </div>
+          </div>
+
+          <div class="summary-title"><a class="summary-title-link" href="#"></a></div>
+
+          <div class="summary-excerpt summary-excerpt-only"><p class="preFlex flexIn"></p></div>
+
+          <div class="summary-metadata-container summary-metadata-container--below-content">
+            <div class="summary-metadata summary-metadata--primary">
+              <time class="summary-metadata-item summary-metadata-item--date" datetime=""></time>
+            </div>
+            <div class="summary-metadata summary-metadata--secondary">
+              <span class="summary-metadata-item summary-metadata-item--author"><a href="#"></a></span>
+            </div>
+          </div>
+
+          <a class="summary-read-more-link" href="#">Read More</a>
+        </div>
+      </div>
+    </template>
+
+    <script src="../plugin/image-reveal.js"></script>
+    <script src="./config-ui.js"></script>
+  </body>
+</html>
+

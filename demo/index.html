@@ -1,0 +1,342 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Reveal on Hover Demo</title>
+    <link rel="stylesheet" href="../plugin/image-reveal.css" />
+    <style>
+      body {
+        margin: 0;
+        background: radial-gradient(circle at 15% 20%, #1f3842 0%, #0d171c 42%, #080f12 100%);
+        color: #eef5f7;
+        font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+      }
+
+      .demo-wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+      }
+
+      .demo-headline {
+        font-size: clamp(1.8rem, 3vw, 3rem);
+        margin: 0 0 10px;
+        letter-spacing: 0.01em;
+      }
+
+      .demo-subtitle {
+        margin: 0 0 34px;
+        color: rgba(236, 245, 247, 0.7);
+        max-width: 60ch;
+      }
+
+      .demo-section {
+        margin-bottom: 42px;
+        border: 1px solid rgba(236, 245, 247, 0.14);
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(10, 20, 24, 0.85), rgba(8, 15, 19, 0.72));
+        padding: 16px;
+      }
+
+      .demo-section h2 {
+        font-size: 0.88rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        opacity: 0.62;
+        margin: 8px 10px 16px;
+      }
+
+      .summary-item-list {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-wrap">
+      <h1 class="demo-headline">Image Reveal on Hover</h1>
+      <p class="demo-subtitle">
+        Demo page with Squarespace Summary Block-like markup. The plugin scans sections with IDs like
+        <code>image-reveal</code> and <code>image-reveal-1</code>, then rebuilds into tabular rows with a single floating preview layer.
+      </p>
+
+      <section id="image-reveal" class="demo-section">
+        <h2>Section: image-reveal</h2>
+        <div class="sqs-block summary-v2-block sqs-block-summary-v2">
+          <div class="sqs-block-content">
+            <div class="summary-block-wrapper summary-block-collection-type-blog-basic-grid summary-block-setting-text-size-medium summary-block-setting-text-align-left summary-block-setting-design-autocolumns summary-block-setting-design-list-thumbnail-left summary-block-setting-metadata-position-below-content summary-block-setting-primary-metadata-date summary-block-setting-secondary-metadata-author summary-block-setting-show-thumbnail summary-block-setting-show-title summary-block-setting-show-price summary-block-setting-show-excerpt sqs-gallery-design-autocolumns">
+              <div class="summary-item-list-container sqs-gallery-container">
+                <header class="summary-block-header">
+                  <div class="summary-heading preFade">
+                    <span class="summary-header-text"></span>
+                  </div>
+                </header>
+                <div class="summary-item-list sqs-gallery sqs-gallery-design-autocolumns"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="image-reveal-1" class="demo-section">
+        <h2>Section: image-reveal-1</h2>
+        <div class="sqs-block summary-v2-block sqs-block-summary-v2">
+          <div class="sqs-block-content">
+            <div class="summary-block-wrapper summary-block-collection-type-blog-basic-grid summary-block-setting-text-size-medium summary-block-setting-text-align-left summary-block-setting-design-autocolumns summary-block-setting-design-list-thumbnail-left summary-block-setting-metadata-position-below-content summary-block-setting-primary-metadata-date summary-block-setting-secondary-metadata-author summary-block-setting-show-thumbnail summary-block-setting-show-title summary-block-setting-show-price summary-block-setting-show-excerpt sqs-gallery-design-autocolumns">
+              <div class="summary-item-list-container sqs-gallery-container">
+                <header class="summary-block-header">
+                  <div class="summary-heading preFade">
+                    <span class="summary-header-text"></span>
+                  </div>
+                </header>
+                <div class="summary-item-list sqs-gallery sqs-gallery-design-autocolumns"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template id="summary-item-template">
+      <div class="summary-item summary-item-record-type-text sqs-gallery-design-autocolumns-slide summary-item-has-thumbnail summary-item-has-excerpt summary-item-has-author positioned">
+        <div class="summary-thumbnail-outer-container">
+          <a class="summary-thumbnail-container sqs-gallery-image-container" href="#">
+            <div class="summary-thumbnail img-wrapper preFlex flexIn">
+              <img class="summary-thumbnail-image loaded" src="" alt="" />
+            </div>
+          </a>
+        </div>
+
+        <div class="summary-content sqs-gallery-meta-container preFade fadeIn">
+          <div class="summary-metadata-container summary-metadata-container--above-title">
+            <div class="summary-metadata summary-metadata--primary">
+              <time class="summary-metadata-item summary-metadata-item--date" datetime=""></time>
+            </div>
+            <div class="summary-metadata summary-metadata--secondary">
+              <span class="summary-metadata-item summary-metadata-item--author">
+                <a href="#"></a>
+              </span>
+            </div>
+          </div>
+
+          <div class="summary-title">
+            <a class="summary-title-link" href="#"></a>
+          </div>
+
+          <div class="summary-excerpt summary-excerpt-only">
+            <p class="preFlex flexIn"></p>
+          </div>
+
+          <div class="summary-metadata-container summary-metadata-container--below-content">
+            <div class="summary-metadata summary-metadata--primary">
+              <time class="summary-metadata-item summary-metadata-item--date" datetime=""></time>
+            </div>
+            <div class="summary-metadata summary-metadata--secondary">
+              <span class="summary-metadata-item summary-metadata-item--author">
+                <a href="#"></a>
+              </span>
+            </div>
+          </div>
+
+          <a class="summary-read-more-link" href="#">Read Story</a>
+        </div>
+      </div>
+    </template>
+
+    <script src="../plugin/image-reveal.js"></script>
+    <script>
+      (function () {
+        var storiesA = [
+          {
+            title: "City Morning Protocol",
+            excerpt: "How quiet routines and measured constraints shape better product decisions across teams.",
+            link: "https://example.com/story/city-morning-protocol",
+            image: "https://picsum.photos/id/1015/960/1200",
+            author: "Mira Sloan",
+            date: "2026-01-05",
+            dateLabel: "Jan 5, 2026"
+          },
+          {
+            title: "Designing for Speed, Not Rush",
+            excerpt: "Fast interfaces feel inevitable when hierarchy, copy, and interaction timing align.",
+            link: "https://example.com/story/designing-for-speed",
+            image: "https://picsum.photos/id/1027/960/1200",
+            author: "Evan Rhodes",
+            date: "2026-01-09",
+            dateLabel: "Jan 9, 2026"
+          },
+          {
+            title: "The Architecture of Calm",
+            excerpt: "A practical system for reducing UI noise while preserving product depth.",
+            link: "https://example.com/story/architecture-of-calm",
+            image: "https://picsum.photos/id/1035/960/1200",
+            author: "Noor Patel",
+            date: "2026-01-14",
+            dateLabel: "Jan 14, 2026"
+          },
+          {
+            title: "Intention in Motion",
+            excerpt: "Micro and macro transitions should communicate state, not decoration.",
+            link: "https://example.com/story/intention-in-motion",
+            image: "https://picsum.photos/id/1043/960/1200",
+            author: "Kian Holt",
+            date: "2026-01-17",
+            dateLabel: "Jan 17, 2026"
+          },
+          {
+            title: "Structured Experiment Loops",
+            excerpt: "A repeatable format for shipping controlled changes in high-traffic environments.",
+            link: "https://example.com/story/experiment-loops",
+            image: "https://picsum.photos/id/1049/960/1200",
+            author: "Lena Park",
+            date: "2026-01-22",
+            dateLabel: "Jan 22, 2026"
+          },
+          {
+            title: "From Wireframe to Rhythm",
+            excerpt: "Spacing systems and type scales that preserve clarity under content pressure.",
+            link: "https://example.com/story/wireframe-to-rhythm",
+            image: "https://picsum.photos/id/1052/960/1200",
+            author: "Sami Calder",
+            date: "2026-01-24",
+            dateLabel: "Jan 24, 2026"
+          },
+          {
+            title: "Signals Over Ornament",
+            excerpt: "Prioritize meaningful visual cues to reduce onboarding and support cost.",
+            link: "https://example.com/story/signals-over-ornament",
+            image: "https://picsum.photos/id/1062/960/1200",
+            author: "Rae Winters",
+            date: "2026-01-28",
+            dateLabel: "Jan 28, 2026"
+          },
+          {
+            title: "The Last 10 Percent",
+            excerpt: "Where product quality compounds: copy polish, hover intent, and keyboard flow.",
+            link: "https://example.com/story/the-last-ten-percent",
+            image: "https://picsum.photos/id/1067/960/1200",
+            author: "Iris Webb",
+            date: "2026-01-31",
+            dateLabel: "Jan 31, 2026"
+          }
+        ];
+
+        var storiesB = [
+          {
+            title: "Operations as UX",
+            excerpt: "Delivery reliability is felt directly by users and should be designed intentionally.",
+            link: "https://example.com/story/operations-as-ux",
+            image: "https://picsum.photos/id/1074/960/1200",
+            author: "Theo Nash",
+            date: "2026-02-02",
+            dateLabel: "Feb 2, 2026"
+          },
+          {
+            title: "Visible Priorities",
+            excerpt: "Roadmaps become more credible when scope, intent, and quality bar are explicit.",
+            link: "https://example.com/story/visible-priorities",
+            image: "https://picsum.photos/id/1081/960/1200",
+            author: "Mina Chen",
+            date: "2026-02-05",
+            dateLabel: "Feb 5, 2026"
+          },
+          {
+            title: "Default States Matter",
+            excerpt: "Most product trust is earned before users touch advanced features.",
+            link: "https://example.com/story/default-states",
+            image: "https://picsum.photos/id/1084/960/1200",
+            author: "Arlo Green",
+            date: "2026-02-08",
+            dateLabel: "Feb 8, 2026"
+          },
+          {
+            title: "Write the Interface",
+            excerpt: "Editorial discipline can sharpen onboarding, settings pages, and error states.",
+            link: "https://example.com/story/write-the-interface",
+            image: "https://picsum.photos/id/1080/960/1200",
+            author: "Jules Aster",
+            date: "2026-02-11",
+            dateLabel: "Feb 11, 2026"
+          }
+        ];
+
+        function renderSummary(sectionId, items) {
+          var section = document.getElementById(sectionId);
+          var list = section.querySelector('.summary-item-list');
+          var template = document.getElementById('summary-item-template');
+
+          items.forEach(function (entry, index) {
+            var node = template.content.firstElementChild.cloneNode(true);
+            node.classList.toggle('sqs-active-slide', index === 0);
+
+            var image = node.querySelector('.summary-thumbnail-image');
+            image.src = entry.image;
+            image.alt = entry.title;
+
+            var thumbLink = node.querySelector('.summary-thumbnail-container');
+            thumbLink.href = entry.link;
+
+            var title = node.querySelector('.summary-title-link');
+            title.textContent = entry.title;
+            title.href = entry.link;
+
+            var excerpt = node.querySelector('.summary-excerpt p');
+            excerpt.textContent = entry.excerpt;
+
+            var dates = node.querySelectorAll('time.summary-metadata-item--date');
+            dates.forEach(function (dateNode) {
+              dateNode.setAttribute('datetime', entry.date);
+              dateNode.textContent = entry.dateLabel;
+            });
+
+            var authorLinks = node.querySelectorAll('.summary-metadata-item--author a');
+            authorLinks.forEach(function (authorNode) {
+              authorNode.textContent = entry.author;
+              authorNode.href = entry.link;
+            });
+
+            var readMore = node.querySelector('.summary-read-more-link');
+            readMore.href = entry.link;
+
+            list.appendChild(node);
+          });
+        }
+
+        renderSummary('image-reveal', storiesA);
+        renderSummary('image-reveal-1', storiesB);
+
+        window.ImageRevealHover.init({
+          target: '[id^="image-reveal"]',
+          layout: 'left-content-right-image',
+          animation: {
+            preset: 'fade-slide-scale',
+            speed: 'medium',
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+          },
+          reveal: {
+            mode: 'drift',
+            rotationDeg: 3,
+            hoverLiftY: 20,
+            offsetRightPx: 80,
+            offsetX: 0,
+            offsetY: 0
+          },
+          textEffects: {
+            rollover: true,
+            inwardSlidePx: 12
+          },
+          rowHover: {
+            bgEnabled: true,
+            bgColor: 'rgba(205, 238, 249, 0.1)'
+          },
+          mobile: {
+            showEffectOnMobile: false,
+            accordionMode: false,
+            accordionSingleOpen: true
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
+
